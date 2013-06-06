@@ -1,0 +1,64 @@
+\documentclass[aps,pre,preprint,showpacs,amsmath,amssymb,superscriptaddress]{revtex4-1}
+
+%\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{bm}
+%\usepackage{color}
+
+%~ \makeatletter
+
+%~ \makeatother
+\newcommand{\rr}{\mathbf{r}}
+\newcommand{\rrp}{\mathbf{r}^\prime}
+\newcommand{\rhor}{\rho\left(\mathbf{\rr}\right)}
+\newcommand{\rhorp}{\rho\left(\mathbf{\rrp}\right)}
+
+
+
+\begin{document}
+
+\title{Thoughts about the definition of the chemical potential in DFT-HRF}
+
+
+\author{Maximilien Levesque}
+\email{maximilien.levesque@gmail.com}
+\affiliation{UPMC Univ Paris 06, UMR 7195, PECSA, F-75005, Paris, France}
+\affiliation{CNRS, UMR 7195, PECSA, F-75005, Paris, France}
+
+
+\begin{abstract}
+In the homogeneous reference fluid approximation one may use in the classical version of the density functional theory,
+what exactly is the chemical potential one imposes?
+It is actually the difference between the chemical potential of the homogeneous fluid, and an ideal gas the
+same density as the liquid.
+\end{abstract}
+
+\maketitle
+
+\section{Theory}
+
+The free energy functional of an homogeneous fluid of particles interacting with pair interactions only and density $\rho_0$ is expressed as
+\begin{equation}
+    \beta F[\rhor] = \int \left( \rhor \ln \frac{\rhor}{\rho_0} - \rhor \right) d\rr +\frac{1}{2}\int d\rr \int d\rrp c(\rr,\rrp) \rhor \rhorp,
+\end{equation}
+where $\beta=1/k_B T$, and $c(\rr,\rrp)$ is the pair correlation function of the fluid.
+
+The chemical potential $\mu$ of the fluid is defined in MDFT-HRF by
+\begin{equation}
+    \beta\mu = \frac{\partial F[\rhor]}{\partial \rhor}\Big|_{\rhor=\rho_0},
+\end{equation}
+which after trivial developments lead to
+\begin{equation}
+    \beta\mu = \ln\frac{\rho_0}{\rho_0} + B\rho_0 = B\rho_0,
+\end{equation}
+where $B$ is linked to the virial coefficients (which one? ;)).
+
+
+\begin{acknowledgments}
+ML thanks Dr Benjamin Rotenberg for bringing out the need for such paper and for fruitful discussions.
+\end{acknowledgments}
+
+\bibliographystyle{apsrev4-1}
+\bibliography{lb}
+
+\end{document}
